@@ -88,18 +88,18 @@ https://diary-app-production-2b81.up.railway.app
 ### 설치 및 실행
 
 1. 저장소 클론
-\```bash
+```bash
 git clone https://github.com/ayd1214/diary-app.git
 cd diary-app
-\```
+```
 
 2. 의존성 설치
-\```bash
+```bash
 npm install
-\```
+```
 
 3. MySQL에서 DB 및 테이블 생성
-\```sql
+```sql
 CREATE DATABASE diary_app;
 USE diary_app;
 
@@ -120,7 +120,7 @@ CREATE TABLE DIARY (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES USER(id)
 );
-\```
+```
 
 4. 테스트 데이터 삽입
 ```bash
@@ -128,24 +128,24 @@ mysql -u root -p < data.sql
 ```
 
 5. 환경변수 설정 - 루트 폴더에 `.env` 파일 생성
-\```
+```
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=본인의_MySQL_비밀번호
 DB_NAME=diary_app
 DB_PORT=3306
 JWT_SECRET=mysecretkey123
-\```
+```
 
 6. 서버 실행
-\```bash
+```bash
 npm start
-\```
+```
 
 7. 접속 확인
-\```
+```
 http://localhost:3000
-\```
+```
 
 ## AI 사용 내역
 
