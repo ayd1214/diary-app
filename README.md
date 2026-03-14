@@ -150,17 +150,15 @@ http://localhost:3000
 
 ## AI 사용 내역
 
-이 과제는 Claude (claude.ai)의 도움을 받아 작성되었습니다.
+이번 과제 수행 과정에서 초기 환경 세팅과 반복적인 뼈대 코드 작성 시간을 단축하고, cloud 배포 환경에서의 troubleshooting을 보조받기 위해 Claude를 활용했습니다.
 
 ### 사용한 주요 프롬프트
-- 환경 세팅 (Node.js, MySQL 설치 및 설정)
-- 프로젝트 구조 설계
-- 각 API 코드 작성 (회원가입, 로그인, 일기 CRUD, 공유 기능)
-- JWT 인증 미들웨어 구현
-- Railway 배포 설정
-- README 작성
+- Node.js, Express, MySQL 환경에서의 REST API boilerplate 및 JWT 기반 인증 흐름 생성
+- 과제 요구사항에 맞춘 일기 작성 및 조회(CR) API logic 설계
+- Railway cloud 배포 시 발생하는 port binding(0.0.0.0) 오류 해결 방법 검색
 
-### AI 사용 방식
-단순 코드 복붙이 아닌, 각 코드의 동작 원리와 개념 
-(JWT 인증 방식, bcrypt 해싱, SQL Injection 방어, 
-미들웨어 패턴, REST API 설계 원칙 등)을 이해하면서 진행하였습니다.
+### AI 사용 및 코드 반영 방식
+- 초기 구조는 AI의 도움을 받아 빠르게 구성했으나, 제안받은 코드를 그대로 맹신하지 않고 각 API의 동작 원리와 보안 요소(비밀번호 해싱, JWT 인증, SQL injection 방어 등)를 직접 검증하며 프로젝트에 적용했습니다.
+- 과제 명세를 다시 확인하여 불필요한 일기 수정(U)과 삭제(D) 기능을 제외하고, 요구된 생성(C)과 다양한 조회(R) logic 및 권한 처리만 정확히 동작하도록 코드를 수정했습니다.
+- 기본 API 구현 이후, cloud 환경 배포 중 발생한 서버 host binding 이슈를 문서를 참고하여 직접 debugging하고 해결했습니다.
+- 추가로 회원가입 시 이메일 유효성 검사 logic을 덧붙여 애플리케이션의 안정성을 높였습니다.
