@@ -19,6 +19,7 @@ https://diary-app-production-2b81.up.railway.app
 
 - email: test@test.com
 - password: 12345678
+- nickname: 테스터
 
 ## API 목록
 
