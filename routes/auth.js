@@ -13,6 +13,12 @@ router.post('/signup', async (req, res) => {
     return res.status(400).json({ message: '이메일, 비밀번호, 닉네임을 모두 입력해주세요.' });
   }
 
+  // 이메일 형식 체크
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ message: '이메일 형식이 올바르지 않습니다.' });
+  }
+
   try {
     // 이메일 중복 체크
     const [existing] = await db.query('SELECT id FROM USER WHERE email = ?', [email]);
